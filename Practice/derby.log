@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Jul 27 12:32:04 IST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-015d-82da-31e8-00000cc85190 
+on database directory C:\Users\KOGENTIX\New folder\Xebia\metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@75f65e45 
+Loaded from file:/C:/Users/KOGENTIX/.m2/repository/org/apache/derby/derby/10.10.2.0/derby-10.10.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_101-b13
+user.dir=C:\Users\KOGENTIX\New folder\Xebia
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,28 @@
+{
+	"_id": "597ae3adde2b14efdd2acb57",
+	"education": [{
+		"degree": "<p>Bachelor of Applied Science (B.A.Sc.), Criminal Justice/Forensic/Law Enforcement<b>",
+		"description": "",
+		"endDate": "2011",
+		"schoolName": "AIU",
+		"startDate": "2010"       
+	},          {           
+		"degree": "Associate's degree, Medical Billing & Coding",
+		            "description": "",
+		            "endDate": "2010",
+		            "schoolName": "AIU",
+		            "startDate": "2009"       
+	},          {           
+		"degree": "Associate's degree, Medical Billing & Coding",
+		            "endDate": "2010",
+		            "id": "65669354",
+		            "schoolName": "AIU",
+		            "startDate": "2009"       
+	},          {           
+		"degree": "Bachelor of Applied Science (B.A.Sc.), Criminal Justice/Forensic/Law Enforcement",
+		            "endDate": "2011",
+		            "id": "65669354",
+		            "schoolName": "AIU",
+		            "startDate": "2010"       
+	}   ]
+}
