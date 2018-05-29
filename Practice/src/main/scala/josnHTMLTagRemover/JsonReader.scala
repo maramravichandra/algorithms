@@ -2,7 +2,6 @@ package josnHTMLTagRemover;
 
 import org.json.JSONObject
 import org.json.JSONArray
-import org.json.simple.parser.JSONParser
 import java.io.FileReader
 import org.apache.spark.sql.SQLContext
 import org.apache.spark.SparkConf

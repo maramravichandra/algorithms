@@ -6,9 +6,15 @@ object Test1 {
    def main( args:Array[String] ){
     
      
-     val sdf = new SimpleDateFormat("yyyy-mm-dd");
-			val date = sdf.parse("2017-08-01 00:00:00.0");
+     val sdf = new SimpleDateFormat("dd-MMM-yy hh:mm:ss");
+			val date = sdf.parse("01-Jan-12 03:30:00");
 			println(date.getTime);
+			
+			val format = "dd/MMMM/yy"
+			val sdf1 = new SimpleDateFormat(format); 
+			println( sdf1.format(date))
+			
+			
      
      return;
     val preffix = Array("3","*34","+1*23","+12");

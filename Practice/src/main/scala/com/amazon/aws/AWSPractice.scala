@@ -8,6 +8,7 @@ import java.io.File
 import scala.io.Source
 import org.json.JSONObject
 import org.apache.spark.sql.SparkSession
+import com.amazonaws.services.s3.model.ListObjectsRequest
 
 object AWSPractice {
   
@@ -30,7 +31,7 @@ object AWSPractice {
     }
     
     // { "name":"Megha" }  ; key is name in below method
-    def readFileFromS3(path:String,key:String):String={
+    def readFileFromS3(path:String):String={
       val credentials = new BasicAWSCredentials (accessKey, secretKey) 
       val client = new AmazonS3Client(credentials)
       if(!isFileExistedInS3(client, path)) return null;
@@ -38,13 +39,38 @@ object AWSPractice {
       val temp = client.getObject(getReq, new File("/temp/path.json"))
       val jsonString = Source.fromFile("/temp/path.json").getLines().mkString(" ")
       val json = new JSONObject(jsonString)
-      return if( json.has(key) ) json.getString(key) else null
+      return if( json.has("source_system") ) json.getString("source_system") else null
     }
     
     val spark = SparkSession.builder().appName("AWSPractice").master("local[*]").getOrCreate()
     spark.udf.register("readFileFromS3", readFileFromS3 _ )
     
-    val df = spark.sql(s"""SELECT readFileFromS3(pathcolumn,'name') as tempcol from table """);
+    val df = spark.sql(s"""SELECT readFileFromS3(pathcolumn) as tempcol from table """);
+    
+    
+    import scala.collection.JavaConversions._
+
+    val loadData = "";
+    val batchId  = "";
+    val credentials = new BasicAWSCredentials (accessKey, secretKey) 
+    val client = new AmazonS3Client(credentials)
+    
+    val listObjectsRequest = new ListObjectsRequest().withBucketName(bucketName)
+    val objects  = client.listObjects(listObjectsRequest).getObjectSummaries;
+    val allSuccessFolders = objects.filter( obj => obj.getKey.contains(s"load_date=$loadData") && obj.getKey.split("/").last.equalsIgnoreCase("_SUCCESS")  )
+                       .map( obj => obj.getKey.replace("_SUCCESS","").toString()).toArray
+    val allFiles = objects.filter( obj => !obj.getKey.split("/").last.equalsIgnoreCase("_SUCCESS") ).foreach{ obj =>
+      
+      val file = obj.getKey.substring( 0 , obj.getKey.lastIndexOf("/"))
+      val isExisted = allSuccessFolders.indexOf(file) != -1
+      if( isExisted ){
+        println( obj.getKey.substring( obj.getKey.lastIndexOf("/")+1 , obj.getKey.length()) ) 
+      }
+    }
+    
+    
+    
+    
     
   }
 }
