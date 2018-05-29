@@ -1,0 +1,10 @@
+host1 - - [date1] "GET" 200 3985
+host1 - - [date1] "GET" 304 0
+host1 - - [date1] "GET" 304 0
+host1 - - [date1] "GET" 200 0
+host1 - - [date1] "GET" 200 3985
+host1 - - [date1] "GET" 200 40310
+host1 - - [date1] "GET" 200 786
+host1 - - [date1] "GET" 200 1204
+host1 - - [date1] "GET" 200 40310
+host1 - - [date1] "GET" 200 786
