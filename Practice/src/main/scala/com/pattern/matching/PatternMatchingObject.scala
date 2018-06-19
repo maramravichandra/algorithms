@@ -23,6 +23,9 @@ object PatternMatchingObject {
     println(getMatchedString(1));
     println(getMatchedString(100));
     
+    if( test2 == test21 ){
+      
+    }
     var result = validatePerson(Man("Ravi",100))
     println( result );
     println( validatePerson(Man("Ravi",140)) );

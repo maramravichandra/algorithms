@@ -11,8 +11,6 @@ object Test {
     
     println( x,y,z)
     
-    return;
-    
     
     
     val cobj = new CompanionObject

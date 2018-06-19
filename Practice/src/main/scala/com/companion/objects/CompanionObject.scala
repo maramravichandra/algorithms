@@ -16,7 +16,5 @@ object CompanionObject {
     println("Name",cobj.getName);
     cobj.setName("SET NAME")
     println("Name",cobj.getName);
-    
-    
   }
 }
